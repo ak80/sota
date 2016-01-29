@@ -100,5 +100,19 @@ public class StreamTest {
     assertThat(list,contains("one", "two", "three"));
   }
 
+  @Test
+  public void testMap() {
+    // Given
+    Stream<String> stream = Stream.of("1", "22", "333");
+
+    // When
+    List<Integer> list = stream.
+        map( s -> s.length() ).
+        collect(Collectors.toList());
+
+    // Then
+    assertThat(list,contains(1, 2, 3));
+  }
+
 
 }

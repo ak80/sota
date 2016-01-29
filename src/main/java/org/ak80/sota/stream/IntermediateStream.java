@@ -1,7 +1,6 @@
 package org.ak80.sota.stream;
 
 import org.ak80.sota.function.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
@@ -130,12 +129,12 @@ abstract class IntermediateStream<T> implements Stream<T> {
 
   @Override
   public boolean allMatch(Predicate<? super T> predicate) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public boolean anyMatch(Predicate<? super T> predicate) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -149,57 +148,57 @@ abstract class IntermediateStream<T> implements Stream<T> {
 
   @Override
   public <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public long count() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntermediateStream<T> distinct() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Optional<T> findAny() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public DoubleStream flatMapToDouble(Function<? super T, ? extends DoubleStream> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntStream flatMapToInt(Function<? super T, ? extends IntStream> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public LongStream flatMapToLong(Function<? super T, ? extends LongStream> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void forEach(Consumer<? super T> action) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void forEachOrdered(Consumer<? super T> action) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntermediateStream<T> limit(long maxSize) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -209,103 +208,105 @@ abstract class IntermediateStream<T> implements Stream<T> {
 
   @Override
   public <R> IntermediateStream<R> map(Function<? super T, ? extends R> mapper) {
-    throw new NotImplementedException();
+    consume();
+    Supplier<R> mapperSupplier = () -> mapper.apply(iterator.next());
+    return new SupplierStream<>(mapperSupplier, getMaximumSize());
   }
 
   @Override
   public DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntStream mapToInt(ToIntFunction<? super T> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public LongStream mapToLong(ToLongFunction<? super T> mapper) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Optional<T> max(Comparator<? super T> comparator) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Optional<T> min(Comparator<? super T> comparator) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public boolean noneMatch(Predicate<? super T> predicate) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntermediateStream<T> peek(Consumer<? super T> action) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Optional<T> reduce(BinaryOperator<T> accumulator) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public T reduce(T identity, BinaryOperator<T> accumulator) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntermediateStream<T> skip(long n) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntermediateStream<T> sorted() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public IntermediateStream<T> sorted(Comparator<? super T> comparator) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
 
   @Override
   public <A> A[] toArray(IntFunction<A[]> generator) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Stream<T> onClose(Runnable closeHandler) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Stream<T> parallel() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Stream<T> sequential() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Spliterator<T> spliterator() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Stream<T> unordered() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
