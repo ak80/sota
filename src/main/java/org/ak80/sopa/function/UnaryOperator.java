@@ -4,7 +4,7 @@ package org.ak80.sopa.function;
  * Operation that receives and input arguments and produces a result of different type
  * <p/>
  *
- * @param <T> type of the input argument and the putput
+ * @param <T> type of the input argument and the output
  */
 @FunctionalInterface
 public interface UnaryOperator<T> {

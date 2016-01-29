@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * @param <T> the type of the stream elements
  */
 class CollectionStream<T> extends IntermediateStream<T> {
-  private Collection<T> collection;
+  private final Collection<T> collection;
   private Iterator<T> iterator;
 
   /**

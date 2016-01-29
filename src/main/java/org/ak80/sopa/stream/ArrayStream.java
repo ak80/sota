@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
  * @param <T> the type of the stream elements
  */
 class ArrayStream<T> extends IntermediateStream<T> {
-  private T[] array;
+  private final T[] array;
   private int position = 0;
 
   /**

@@ -22,7 +22,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
    * @param <T>        the type of the the stream elements
    * @return a stream that will supply the elements from the collection
    */
-  public static <T> Stream<T> from(Collection<T> collection) {
+  static <T> Stream<T> from(Collection<T> collection) {
     return new CollectionStream<>(collection);
   }
 

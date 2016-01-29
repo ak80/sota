@@ -19,7 +19,7 @@ class SupplierStream<T> extends IntermediateStream<T> {
    * @param supplier to get elements, e.g. from another stream while applying an operation
    * @param maxSize  the maximum number of elements
    */
-  protected SupplierStream(Supplier<T> supplier, int maxSize) {
+  SupplierStream(Supplier<T> supplier, int maxSize) {
     this.supplier = supplier;
     this.maxSize = maxSize;
   }
@@ -27,8 +27,8 @@ class SupplierStream<T> extends IntermediateStream<T> {
   /**
    * Internally used to get the "next" element from a stream
    *
+   *  throws NoSuchFieldException when stream has no more elements
    * @return the "next" element of the stream
-   * @throws NoSuchFieldException when stream has no more elements
    */
   @Override
   protected T next() {
