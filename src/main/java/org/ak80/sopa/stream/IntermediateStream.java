@@ -4,7 +4,6 @@ import org.ak80.sopa.function.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 /**
  * A stream that aims to provide some methods similar to Java 8 streams

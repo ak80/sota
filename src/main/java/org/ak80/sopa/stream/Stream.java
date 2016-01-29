@@ -1,12 +1,10 @@
 package org.ak80.sopa.stream;
 
 import org.ak80.sopa.function.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * A stream that aims to provide some methods similar to Java 8 streams
@@ -33,7 +31,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   boolean anyMatch(Predicate<? super T> predicate);
 
   static <T> Stream.Builder<T> builder() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   <R, A> R collect(Collector<? super T, A, R> collector);
@@ -41,7 +39,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner);
 
   static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   long count();
@@ -49,7 +47,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   Stream<T> distinct();
 
   static <T> Stream<T> empty() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   Stream<T> filter(Predicate<? super T> predicate);
@@ -71,11 +69,11 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   void forEachOrdered(Consumer<? super T> action);
 
   static <T> Stream<T> generate(Supplier<T> s) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   static <T> Stream<T> iterate(T seed, UnaryOperator<T> f) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   Stream<T> limit(long maxSize);
@@ -106,7 +104,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   }
 
   static <T> Stream<T> of(T t) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   Stream<T> peek(Consumer<? super T> action);
