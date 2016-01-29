@@ -34,6 +34,13 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
     throw new UnsupportedOperationException();
   }
 
+  /**
+   * Terminate the stream and turn it into a collection
+   * @param collector creates collections from stream
+   * @param <R> type of the collection
+   * @param <A> type of accumulated elements (intermediate result)
+   * @return a collection
+   */
   <R, A> R collect(Collector<? super T, A, R> collector);
 
   <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner);
@@ -50,10 +57,21 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
     throw new UnsupportedOperationException();
   }
 
+  /**
+   * Returns a stream that contains only elements that match the condition of the predicate
+   *
+   * @param predicate the predicate to use to decide whether an element will be in the new stream
+   * @return a new stream with only the elements that match condition of the predicate
+   */
   Stream<T> filter(Predicate<? super T> predicate);
 
   Optional<T> findAny();
 
+  /**
+   * Returns an Optional with the first element of the stream - or empty if the stream is empty
+   *
+   * @return Optional with the first element - or empty if the stream is empty
+   */
   Optional<T> findFirst();
 
   <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);
@@ -64,9 +82,9 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   LongStream flatMapToLong(Function<? super T, ? extends LongStream> mapper);
 
-  void forEach(Consumer<? super T> action);
+  void forEach(Consumer<? super T> consumer);
 
-  void forEachOrdered(Consumer<? super T> action);
+  void forEachOrdered(Consumer<? super T> consumer);
 
   static <T> Stream<T> generate(Supplier<T> s) {
     throw new UnsupportedOperationException();
@@ -78,6 +96,12 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   Stream<T> limit(long maxSize);
 
+  /**
+   * Create a new stream where each element is mapped to the type
+   * @param mapper the mapper
+   * @param <R> type of the new stream
+   * @return new stream with each element mapped
+   */
   <R> Stream<R> map(Function<? super T, ? extends R> mapper);
 
   DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper);
@@ -107,7 +131,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
     throw new UnsupportedOperationException();
   }
 
-  Stream<T> peek(Consumer<? super T> action);
+  Stream<T> peek(Consumer<? super T> consumer);
 
   Optional<T> reduce(BinaryOperator<T> accumulator);
 

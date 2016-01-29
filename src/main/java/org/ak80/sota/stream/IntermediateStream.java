@@ -30,12 +30,6 @@ abstract class IntermediateStream<T> implements Stream<T> {
    */
   protected abstract int getMaximumSize();
 
-  /**
-   * Returns a stream that contains only elements that match the condition of the predicate
-   *
-   * @param predicate the predicate to use to decide whether an element will be in the new stream
-   * @return a new stream with only the elements that match condition of the predicate
-   */
   @Override
   public SupplierStream<T> filter(Predicate<? super T> predicate) {
     consume();
@@ -52,11 +46,6 @@ abstract class IntermediateStream<T> implements Stream<T> {
     return new SupplierStream<>(filterSupplier, getMaximumSize());
   }
 
-  /**
-   * Returns an Optional with the first element of the stream - or empty if the stream is empty
-   *
-   * @return Optional with the first element - or empty if the stream is empty
-   */
   @Override
   public Optional<T> findFirst() {
     terminate();

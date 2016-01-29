@@ -10,7 +10,7 @@ import org.ak80.sota.function.Supplier;
  *
  * @param <T> Type of the elements in the stream
  * @param <A> intermediate accumulated result
- * @param <R> Type of the final result
+ * @param <R> Type of the final result (i.e. collection)
  */
 public interface Collector<T, A, R> {
 
