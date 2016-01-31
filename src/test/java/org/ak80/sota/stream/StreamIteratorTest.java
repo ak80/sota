@@ -18,7 +18,7 @@ public class StreamIteratorTest {
   public ExpectedException expectedException = ExpectedException.none();
 
   @Test
-     public void next_whileThereAreElements_returnsElements() {
+  public void next_whileThereAreElements_returnsElements() {
     // Given
     Stream<String> stream = Stream.of("one", "two", "three");
 
@@ -26,8 +26,8 @@ public class StreamIteratorTest {
     Iterator<String> iterator = stream.iterator();
 
     // Then
-    assertThat(iterator.next(),is("one"));
-    assertThat(iterator.next(),is("two"));
+    assertThat(iterator.next(), is("one"));
+    assertThat(iterator.next(), is("two"));
     assertThat(iterator.next(), is("three"));
   }
 
@@ -40,8 +40,8 @@ public class StreamIteratorTest {
     Iterator<String> iterator = stream.iterator();
 
     // Then
-    assertThat(iterator.next(),is("one"));
-    assertThat(iterator.next(),is(nullValue()));
+    assertThat(iterator.next(), is("one"));
+    assertThat(iterator.next(), is(nullValue()));
     assertThat(iterator.next(), is("three"));
   }
 

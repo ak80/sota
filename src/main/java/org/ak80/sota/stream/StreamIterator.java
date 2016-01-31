@@ -44,4 +44,9 @@ class StreamIterator<T> implements Iterator<T> {
     }
   }
 
+  @Override
+  public void remove() {
+    throw new UnsupportedOperationException("not implemented");
+  }
+
 }

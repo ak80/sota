@@ -1,10 +1,10 @@
 package org.ak80.sota.stream;
 
+import org.ak80.sota.Optional;
 import org.ak80.sota.function.*;
 
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Optional;
 
 /**
  * A stream that aims to provide some methods similar to Java 8 streams
@@ -36,9 +36,10 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   /**
    * Terminate the stream and turn it into a collection
+   *
    * @param collector creates collections from stream
-   * @param <R> type of the collection
-   * @param <A> type of accumulated elements (intermediate result)
+   * @param <R>       type of the collection
+   * @param <A>       type of accumulated elements (intermediate result)
    * @return a collection
    */
   <R, A> R collect(Collector<? super T, A, R> collector);
@@ -98,8 +99,9 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   /**
    * Create a new stream where each element is mapped to the type
+   *
    * @param mapper the mapper
-   * @param <R> type of the new stream
+   * @param <R>    type of the new stream
    * @return new stream with each element mapped
    */
   <R> Stream<R> map(Function<? super T, ? extends R> mapper);

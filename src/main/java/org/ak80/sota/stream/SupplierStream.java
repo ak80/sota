@@ -26,8 +26,9 @@ class SupplierStream<T> extends IntermediateStream<T> {
 
   /**
    * Internally used to get the "next" element from a stream
+   * <p>
+   * throws NoSuchFieldException when stream has no more elements
    *
-   *  throws NoSuchFieldException when stream has no more elements
    * @return the "next" element of the stream
    */
   @Override

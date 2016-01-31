@@ -4,12 +4,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.*;
+import java.util.List;
 
 import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class IntermediateStreamTest {
 
@@ -34,7 +33,7 @@ public class IntermediateStreamTest {
     IntermediateStream<String> stream = new ArrayStream<>("one", "two", "three", "four");
 
     // When
-    Object[] array = stream.filter(e->e.contains("t")).toArray();
+    Object[] array = stream.filter(e -> e.contains("t")).toArray();
 
     // Then
     assertThat(array.length, is(2));
@@ -67,7 +66,7 @@ public class IntermediateStreamTest {
     stream.findFirst();
 
     expectedException.expect(IllegalStateException.class);
-    stream.filter(e->e.contains("t")).toArray();
+    stream.filter(e -> e.contains("t")).toArray();
   }
 
   @Test

@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class CollectionStreamTest {
 
@@ -18,12 +18,12 @@ public class CollectionStreamTest {
   public ExpectedException expectedException = ExpectedException.none();
 
   @Test
-  public void getNext_fromCollectiont_givesNext() throws Exception {
+  public void getNext_fromCollection_givesNext() throws Exception {
     // Given
     CollectionStream<String> stream = new CollectionStream(Arrays.asList("one", "two", "three"));
 
     // When Then
-    assertThat(stream.next(),is("one"));
+    assertThat(stream.next(), is("one"));
     assertThat(stream.next(), is("two"));
     assertThat(stream.next(), is("three"));
   }
@@ -34,7 +34,7 @@ public class CollectionStreamTest {
     CollectionStream<String> stream = new CollectionStream(Arrays.asList("one", null, "three"));
 
     // When Then
-    assertThat(stream.next(),is("one"));
+    assertThat(stream.next(), is("one"));
     assertThat(stream.next(), nullValue());
     assertThat(stream.next(), is("three"));
   }
@@ -45,7 +45,7 @@ public class CollectionStreamTest {
     CollectionStream<String> stream = new CollectionStream(Arrays.asList("one", "two"));
 
     // When Then
-    assertThat(stream.next(),is("one"));
+    assertThat(stream.next(), is("one"));
     assertThat(stream.next(), is("two"));
 
     expectedException.expect(NoSuchElementException.class);
@@ -58,6 +58,6 @@ public class CollectionStreamTest {
     CollectionStream<String> stream = new CollectionStream(Arrays.asList("one", "two"));
 
     // When Then
-    assertThat(stream.getMaximumSize(),is(2));
+    assertThat(stream.getMaximumSize(), is(2));
   }
 }

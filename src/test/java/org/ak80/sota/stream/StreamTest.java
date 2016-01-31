@@ -1,10 +1,14 @@
 package org.ak80.sota.stream;
 
+import org.ak80.sota.Optional;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
@@ -21,11 +25,11 @@ public class StreamTest {
     Stream<String> stream = Stream.from(Arrays.asList("one", "2", "3", "four"));
 
     // When
-    Object[] filteredStream = stream.filter( e -> e.contains("o")).toArray();
+    Object[] filteredStream = stream.filter(e -> e.contains("o")).toArray();
 
     // Then
-    assertThat(filteredStream.length,is(2));
-    assertThat(filteredStream[0],is("one"));
+    assertThat(filteredStream.length, is(2));
+    assertThat(filteredStream[0], is("one"));
     assertThat(filteredStream[1], is("four"));
   }
 
@@ -78,10 +82,10 @@ public class StreamTest {
     Iterator<String> iterator = stream.iterator();
 
     // Then
-    assertThat(iterator.hasNext(),is(true));
-    assertThat(iterator.next(),is("one"));
-    assertThat(iterator.hasNext(),is(true));
-    assertThat(iterator.next(),is("two"));
+    assertThat(iterator.hasNext(), is(true));
+    assertThat(iterator.next(), is("one"));
+    assertThat(iterator.hasNext(), is(true));
+    assertThat(iterator.next(), is("two"));
     assertThat(iterator.hasNext(), is(false));
 
     expectedException.expect(NoSuchElementException.class);
@@ -97,7 +101,7 @@ public class StreamTest {
     List<String> list = stream.collect(Collectors.toList());
 
     // Then
-    assertThat(list,contains("one", "two", "three"));
+    assertThat(list, contains("one", "two", "three"));
   }
 
   @Test
@@ -107,11 +111,11 @@ public class StreamTest {
 
     // When
     List<Integer> list = stream.
-        map( s -> s.length() ).
+        map(s -> s.length()).
         collect(Collectors.toList());
 
     // Then
-    assertThat(list,contains(1, 2, 3));
+    assertThat(list, contains(1, 2, 3));
   }
 
 

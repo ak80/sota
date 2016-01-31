@@ -8,14 +8,6 @@
  * same signature and aims to be compatible.
  * <p>
  * There is no special optimization besides that the streams are
- * lazy fetching. Parallelism is not supported
- * <p>
- * Please also note that Java 8 lambdas are needed or a retrofitting
- * like RetroLambda
- * <p>
- * This project was useful as an educational tool, and is used e.g.
- * in Android Projects (with RetroLambda) or GWT 2.8.x projects.
- * <p>
- * For a full backport see http://sourceforge.net/projects/streamsupport/
+ * lazy fetching. Parallelism is not supported.
  */
 package org.ak80.sota.stream;

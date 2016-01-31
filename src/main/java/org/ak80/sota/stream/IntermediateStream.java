@@ -1,5 +1,6 @@
 package org.ak80.sota.stream;
 
+import org.ak80.sota.Optional;
 import org.ak80.sota.function.*;
 
 import java.util.*;

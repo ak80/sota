@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class ArrayStreamTest {
 
@@ -21,7 +21,7 @@ public class ArrayStreamTest {
     ArrayStream<String> stream = new ArrayStream("one", "two", "three");
 
     // When Then
-    assertThat(stream.next(),is("one"));
+    assertThat(stream.next(), is("one"));
     assertThat(stream.next(), is("two"));
     assertThat(stream.next(), is("three"));
   }
@@ -32,7 +32,7 @@ public class ArrayStreamTest {
     ArrayStream<String> stream = new ArrayStream<>("one", null, "three");
 
     // When Then
-    assertThat(stream.next(),is("one"));
+    assertThat(stream.next(), is("one"));
     assertThat(stream.next(), nullValue());
     assertThat(stream.next(), is("three"));
   }
@@ -43,7 +43,7 @@ public class ArrayStreamTest {
     ArrayStream<String> stream = new ArrayStream("one", "two");
 
     // When Then
-    assertThat(stream.next(),is("one"));
+    assertThat(stream.next(), is("one"));
     assertThat(stream.next(), is("two"));
 
     expectedException.expect(NoSuchElementException.class);
