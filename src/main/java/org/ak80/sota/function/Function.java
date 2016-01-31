@@ -2,7 +2,7 @@ package org.ak80.sota.function;
 
 /**
  * Operation that receives an input arguments and produces a result of a different type
- * <p/>
+ * <p>
  *
  * @param <T> type of the input argument
  * @param <R> type of the result object

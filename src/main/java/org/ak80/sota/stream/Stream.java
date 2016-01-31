@@ -15,7 +15,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   /**
    * Returns stream from a collection
-   * <p/>
+   * <p>
    * This method is an addition and not found on the Java8 interface. Replacements for Collection.stream()
    *
    * @param collection the collection from which the stream will be created

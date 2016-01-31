@@ -2,7 +2,7 @@ package org.ak80.sota.function;
 
 /**
  * Operation that receives two input arguments and produces no result
- * <p/>
+ * <p>
  *
  * @param <T> type of the first input argument
  * @param <U> type of the second input argument
